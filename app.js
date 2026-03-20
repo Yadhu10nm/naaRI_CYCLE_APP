@@ -23,13 +23,12 @@ let STATE = {
   calendarDate: new Date(),
   obStep: 1,
   obData: {
-    ageGroup: '',
+    obAgeGroup: '',
     language: 'English',
     goals: [],
     cycleLength: 28,
     periodDuration: 5,
     conditions: [],
-    stressLevel: 5,
     obRegularity: '',
     obTroubles: [],
     obPainLevel: '',
@@ -240,7 +239,7 @@ function updateHeaderUI(user) {
 // ── ONBOARDING ────────────────────────────────────────────
 async function obNext() {
   if (STATE.obStep === 1) {
-    if (!STATE.obData.ageGroup) { showToast('Please select your age group'); return; }
+    if (!STATE.obData.obAgeGroup) { showToast('Please select your age group'); return; }
     goToObStep(2);
   } else if (STATE.obStep === 2) {
     const lastPeriodEl = document.getElementById('ob-last-period');
@@ -1462,7 +1461,7 @@ async function loadProfileInfo() {
   const grid = document.getElementById('profile-info-grid');
   if (grid) {
     const items = [
-      { label: 'Age Group', val: profile.ageGroup || profile.age ? (profile.ageGroup || profile.age + ' yrs') : '–' },
+      { label: 'Age Group', val: profile.obAgeGroup || '–' },
       { label: 'Cycle Length', val: (profile.cycleLength || 28) + ' days' },
       { label: 'Period Duration', val: (profile.periodDuration || 5) + ' days' },
       { label: 'Language', val: profile.language || 'English' },
@@ -1494,10 +1493,10 @@ async function loadProfileInfo() {
       c.classList.toggle('selected', c.dataset.val === val);
     });
   };
-  preSelectChip('profile-activity-chips', profile.activityLevel || profile.obActivityLevel);
-  preSelectChip('profile-foodpref-chips', profile.foodPref || profile.obFoodPref);
-  preSelectChip('profile-foodhabits-chips', profile.foodHabits || profile.obFoodHabits);
-  preSelectChip('profile-movement-chips', profile.movement || profile.obMovement);
+  preSelectChip('profile-activity-chips', profile.obActivityLevel);
+  preSelectChip('profile-foodpref-chips', profile.obFoodPref);
+  preSelectChip('profile-foodhabits-chips', profile.obFoodHabits);
+  preSelectChip('profile-movement-chips', profile.obMovement);
 }
 
 async function saveProfile() {
@@ -1545,17 +1544,17 @@ async function saveDeeperProfile() {
 
   const getChipVal = (id) => {
     const sel = document.querySelector(`#${id} .ob-option-chip.selected`);
-    return sel ? sel.dataset.val : (profile[id.replace('profile-','').replace('-chips','')] || '');
+    return sel ? sel.dataset.val : '';
   };
 
   const updated = {
     ...profile,
     height: parseInt(heightEl?.value) || profile.height || '',
     weight: parseInt(weightEl?.value) || profile.weight || '',
-    activityLevel: getChipVal('profile-activity-chips') || profile.activityLevel || '',
-    foodPref: getChipVal('profile-foodpref-chips') || profile.foodPref || '',
-    foodHabits: getChipVal('profile-foodhabits-chips') || profile.foodHabits || '',
-    movement: getChipVal('profile-movement-chips') || profile.movement || ''
+    obActivityLevel: getChipVal('profile-activity-chips') || profile.obActivityLevel || '',
+    obFoodPref: getChipVal('profile-foodpref-chips') || profile.obFoodPref || '',
+    obFoodHabits: getChipVal('profile-foodhabits-chips') || profile.obFoodHabits || '',
+    obMovement: getChipVal('profile-movement-chips') || profile.obMovement || ''
   };
 
   try {
