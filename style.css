@@ -105,27 +105,6 @@ input, button, select, textarea { font-family: 'Nunito Sans', sans-serif; }
 .stress-scale input { width: 100%; margin-bottom: 6px; accent-color: var(--plum); }
 .stress-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-muted); font-weight: 600; }
 #stress-val-label { color: var(--plum); font-weight: 700; }
-
-/* ── NEW ONBOARDING COMPONENTS (PDF) ── */
-.ob-hint-text { font-size: 12.5px; color: var(--ink-light); margin: -4px 0 10px; font-style: italic; line-height: 1.4; }
-.ob-option-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-.ob-option-chip { padding: 9px 14px; border-radius: 20px; background: var(--lavender); color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer; border: 2px solid transparent; transition: var(--transition); }
-.ob-option-chip.selected { background: var(--lavender-dark); border-color: var(--plum); color: var(--plum); }
-.ob-sleep-stress-grid { display: flex; flex-direction: column; gap: 14px; }
-.ob-ss-group { background: var(--lavender); border-radius: var(--radius); padding: 12px 14px; }
-.ob-ss-label { font-weight: 700; font-size: 13px; color: var(--plum); margin-bottom: 10px; }
-.ob-goal-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
-.ob-goal-card { background: var(--lavender); border-radius: var(--radius); padding: 16px 10px; text-align: center; cursor: pointer; border: 2px solid transparent; transition: var(--transition); }
-.ob-goal-card:hover { border-color: var(--plum); }
-.ob-goal-card.selected { background: var(--lavender-dark); border-color: var(--plum); }
-.ogc-icon { font-size: 28px; margin-bottom: 6px; }
-.ogc-text { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.3; }
-.ob-goal-card.selected .ogc-text { color: var(--plum); }
-.ob-optional-banner { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(135deg, var(--lavender), #F6EFFA); border-radius: var(--radius); padding: 14px; margin-bottom: 18px; }
-.oob-icon { font-size: 26px; flex-shrink: 0; }
-.oob-title { font-weight: 700; font-size: 14px; color: var(--plum); margin-bottom: 2px; }
-.oob-sub { font-size: 12px; color: var(--ink-light); line-height: 1.4; }
-
 .ob-complete-msg { text-align: center; padding: 16px; background: var(--lavender); border-radius: var(--radius); margin-top: 16px; }
 .ob-flower { font-size: 36px; margin-bottom: 8px; }
 .ob-complete-msg p { color: var(--plum); font-weight: 600; font-size: 14px; }
